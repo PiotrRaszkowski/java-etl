@@ -1,5 +1,9 @@
 imię|nazwisko|data urodzenia|adres zamieszkania|kod pocztowy|miasto|numer konta bankowego|nazwa banku|status rachunku
-Karol|Nowak|14/03/1987|ul. Nowakowska 26B/5|83-200|Nowakowo|87101013970055002221000000|mBank|AKTYWNE
-Karol|Nowak|14/03/1987|ul. Nowakowska 26B/5|83-200|Nowakowo|87101013970055003321000000|Santander|ZABLOKOWANE
+Karol|Nowak|14/03/1987|ul.  Nowakowska 26B/5|83-200|Nowakowo|87101013970055002221000000|mBank|AKTYWNE
+Karol|Nowak |14/03/1987|ul. NOWAKOWSKA 26B/5|83-200|Nowakowo|10101013970055003321000000|Santander|ZABLOKOWANE
 Jan|Nowak|14/03/2007|ul. Polna 26B/5|83-200|Stare Pole|22101013970055002221000000|PKO B.P.|AKTYWNE
 Piotr|Piotrowicz|14/03/1921|ul. Nowakowska 26B/5|83-200|Piotrowo|33101013970055002221000000|mBank|NIEAKTYWNE
+|Piotrowicz|14/03/1921|ul. Nowakowska 26B/5|83-200|Piotrowo|33101013970055002221000000|mBank|NIEAKTYWNE
+Piotr||14/03/1921|ul. Nowakowska 26B/5|83-200|Piotrowo|33101013970055002221000000|mBank|NIEAKTYWNE
+Piotr|Piotrowicz||ul. Nowakowska 26B/5|83-200|Piotrowo|33101013970055002221000000|mBank|NIEAKTYWNE
+Piotr|Piotrowicz|03/14/1921|ul. Nowakowska 26B/5|83-200|Piotrowo|33101013970055002221000000|mBank|NIEAKTYWNE

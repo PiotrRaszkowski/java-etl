@@ -2,21 +2,31 @@ package team.jit.trainings.etl;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomersReaderTest {
 
     @Test
-    void test() {
+    void readCustomersGivenFileWithCustomers() {
         //GIVEN
         CustomersReader customersReader = new CustomersReader();
 
         //WHEN
-        List<Customer> customers = customersReader.readCustomers("src/test/resources/customers.csv");
+        CustomersContainer customersContainer = customersReader.readCustomers("src/test/resources/customers.csv");
 
         //THEN
-        assertEquals(4, customers.size());
+        assertEquals(6, customersContainer.size());
+    }
+
+    @Test
+    void readCustomersGivenNotExistingFile() {
+        //GIVEN
+        CustomersReader customersReader = new CustomersReader();
+
+        //WHEN
+        Error error = assertThrows(Error.class, () -> customersReader.readCustomers("src/test/resources/not-existing-file.csv"));
+
+        //THEN
+        assertEquals("File = src/test/resources/not-existing-file.csv does not exists!", error.getMessage());
     }
 }
