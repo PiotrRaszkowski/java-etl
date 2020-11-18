@@ -1,6 +1,7 @@
 package team.jit.trainings.etl;
 
 import org.junit.jupiter.api.Test;
+import team.jit.trainings.etl.customers.entity.AccountStatus;
 
 import static org.junit.jupiter.api.Assertions.*;
 

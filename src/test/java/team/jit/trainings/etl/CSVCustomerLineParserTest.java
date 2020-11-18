@@ -1,22 +1,25 @@
 package team.jit.trainings.etl;
 
 import org.junit.jupiter.api.Test;
+import team.jit.trainings.etl.customers.control.CSVCustomerLineParser;
+import team.jit.trainings.etl.customers.entity.Account;
+import team.jit.trainings.etl.customers.entity.AccountStatus;
+import team.jit.trainings.etl.customers.entity.Customer;
 
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SingleLineCustomerParserTest {
+class CSVCustomerLineParserTest {
 
     @Test
     public void parseGivenCorrectData() {
         //GIVEN
         String line = "Karol|Nowak|14/03/1987|ul.  Nowakowska 26B/5|83-200|Nowakowo|8710101397005500222100000087101013970055002221000000|mBank|AKTYWNE";
 
-        SingleLineCustomerParser parser = new SingleLineCustomerParser();
+        CSVCustomerLineParser parser = new CSVCustomerLineParser();
 
         //WHEN
         Customer customer = parser.parse(line);
@@ -40,7 +43,7 @@ class SingleLineCustomerParserTest {
         //GIVEN
         String line = "Karol|Nowak|03/14/1987|ul.  Nowakowska 26B/5|83-200|Nowakowo|8710101397005500222100000087101013970055002221000000|mBank|AKTYWNE";
 
-        SingleLineCustomerParser parser = new SingleLineCustomerParser();
+        CSVCustomerLineParser parser = new CSVCustomerLineParser();
 
         //WHEN
         Customer customer = parser.parse(line);
@@ -54,7 +57,7 @@ class SingleLineCustomerParserTest {
         //GIVEN
         String line = "|Nowak|14/03/1987|ul.  Nowakowska 26B/5|83-200|Nowakowo|8710101397005500222100000087101013970055002221000000|mBank|AKTYWNE";
 
-        SingleLineCustomerParser parser = new SingleLineCustomerParser();
+        CSVCustomerLineParser parser = new CSVCustomerLineParser();
 
         //WHEN
         Customer customer = parser.parse(line);
@@ -68,7 +71,7 @@ class SingleLineCustomerParserTest {
         //GIVEN
         String line = "Karol||14/03/1987|ul.  Nowakowska 26B/5|83-200|Nowakowo|8710101397005500222100000087101013970055002221000000|mBank|AKTYWNE";
 
-        SingleLineCustomerParser parser = new SingleLineCustomerParser();
+        CSVCustomerLineParser parser = new CSVCustomerLineParser();
 
         //WHEN
         Customer customer = parser.parse(line);
@@ -82,7 +85,7 @@ class SingleLineCustomerParserTest {
         //GIVEN
         String line = "Karol|Nowak||ul.  Nowakowska 26B/5|83-200|Nowakowo|8710101397005500222100000087101013970055002221000000|mBank|AKTYWNE";
 
-        SingleLineCustomerParser parser = new SingleLineCustomerParser();
+        CSVCustomerLineParser parser = new CSVCustomerLineParser();
 
         //WHEN
         Customer customer = parser.parse(line);
@@ -96,7 +99,7 @@ class SingleLineCustomerParserTest {
         //GIVEN
         String line = "Karol|Nowak|14/03/1987|ul.  Nowakowska   26B/5 |83-200|Nowakowo|8710101397005500222100000087101013970055002221000000|mBank|AKTYWNE";
 
-        SingleLineCustomerParser parser = new SingleLineCustomerParser();
+        CSVCustomerLineParser parser = new CSVCustomerLineParser();
 
         //WHEN
         Customer customer = parser.parse(line);

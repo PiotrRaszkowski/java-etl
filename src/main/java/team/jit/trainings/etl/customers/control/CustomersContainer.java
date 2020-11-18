@@ -1,4 +1,6 @@
-package team.jit.trainings.etl;
+package team.jit.trainings.etl.customers.control;
+
+import team.jit.trainings.etl.customers.entity.Customer;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,6 @@
-package team.jit.trainings.etl;
+package team.jit.trainings.etl.customers.control;
+
+import team.jit.trainings.etl.customers.entity.Customer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +8,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.MessageFormat;
 
-public class CustomersReader {
+public class CSVCustomersReader implements CustomersReader {
 
-    private SingleLineCustomerParser singleLineCustomerParser = new SingleLineCustomerParser();
+    private CSVCustomerLineParser CSVCustomerLineParser = new CSVCustomerLineParser();
 
     public CustomersContainer readCustomers(String fileName) {
         try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(fileName))) {
@@ -18,7 +20,7 @@ public class CustomersReader {
 
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                Customer customer = singleLineCustomerParser.parse(line);
+                Customer customer = CSVCustomerLineParser.parse(line);
 
                 customersContainer.add(customer);
             }

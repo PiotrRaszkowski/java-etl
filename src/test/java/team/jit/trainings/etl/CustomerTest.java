@@ -2,6 +2,8 @@ package team.jit.trainings.etl;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import team.jit.trainings.etl.customers.entity.Address;
+import team.jit.trainings.etl.customers.entity.Customer;
 
 import java.time.LocalDate;
 

@@ -1,46 +1,70 @@
 package team.jit.trainings.etl;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
+import team.jit.trainings.etl.customers.control.CustomersContainer;
+import team.jit.trainings.etl.customers.control.CustomersJsonConverter;
+import team.jit.trainings.etl.customers.control.CustomersWriter;
 
-import java.time.LocalDate;
-import java.util.Set;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 
+@ExtendWith(MockitoExtension.class)
 class CustomersWriterTest {
 
+    @Mock
+    private CustomersJsonConverter customersJsonConverter;
+
+    @InjectMocks
+    private CustomersWriter customersWriter;
+
+    private Path tempFile;
+
+    private CustomersContainerTestBuilder customersContainerTestBuilder = new CustomersContainerTestBuilder();
+
+    @BeforeEach
+    public void setUp() throws IOException {
+        tempFile = Files.createTempFile("customers", "");
+    }
+
+    @AfterEach
+    public void tearDown() throws IOException {
+        Files.deleteIfExists(tempFile);
+    }
+
     @Test
-    public void writeCustomers() {
+    public void writeCustomersWhenNoException() throws Exception {
         //GIVEN
-        CustomersWriter customersWriter = new CustomersWriter();
-
-        Account account = Account.builder()
-                .accountNumber("123321")
-                .bankName("mBank")
-                .accountStatus(AccountStatus.ACTIVE)
-                .build();
-
-        Address address = Address.builder()
-                .street("Wiktoriańska 13")
-                .postalCode("80-126")
-                .city("Elbląg")
-                .build();
-
-        Customer customer = Customer.builder()
-                .name("Jan")
-                .surname("Kowalski")
-                .birthDate(LocalDate.of(1987, 4, 15))
-                .address(address)
-                .accounts(Set.of(account))
-                .build();
-
-        CustomersContainer customersContainer = new CustomersContainer();
-        customersContainer.add(customer);
+        CustomersContainer customersContainer = customersContainerTestBuilder.withSingleCustomer();
 
         //WHEN
-        customersWriter.writeCustomers(customersContainer);
-
+        customersWriter.writeCustomers(customersContainer, tempFile);
 
         //THEN
+        Mockito.verify(customersJsonConverter, Mockito.only()).convertToJson(eq(customersContainer), any());
+    }
+
+    @Test
+    public void writeCustomersWhenUnableToSave() throws Exception {
+        //GIVEN
+        CustomersContainer customersContainer = customersContainerTestBuilder.withSingleCustomer();
+
+        //WHEN
+        Error error = Assertions.assertThrows(Error.class, () -> customersWriter.writeCustomers(customersContainer, Files.createTempDirectory("custDir")));
+
+        //THEN
+        assertTrue(error.getMessage().startsWith("Unable to save to selected file ="));
     }
 }

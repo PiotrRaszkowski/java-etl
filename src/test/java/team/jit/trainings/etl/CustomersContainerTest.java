@@ -1,7 +1,11 @@
 package team.jit.trainings.etl;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import team.jit.trainings.etl.customers.control.CustomersContainer;
+import team.jit.trainings.etl.customers.entity.Account;
+import team.jit.trainings.etl.customers.entity.AccountStatus;
+import team.jit.trainings.etl.customers.entity.Address;
+import team.jit.trainings.etl.customers.entity.Customer;
 
 import java.time.LocalDate;
 import java.util.HashSet;

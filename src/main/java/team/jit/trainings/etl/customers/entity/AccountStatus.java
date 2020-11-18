@@ -1,4 +1,4 @@
-package team.jit.trainings.etl;
+package team.jit.trainings.etl.customers.entity;
 
 import java.text.MessageFormat;
 

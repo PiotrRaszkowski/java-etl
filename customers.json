@@ -1,0 +1,133 @@
+[
+  {
+    "name": "",
+    "surname": "Piotrowicz",
+    "birthDate": {
+      "year": 1921,
+      "month": 3,
+      "day": 14
+    },
+    "address": {
+      "street": "ul. Nowakowska 26B/5",
+      "postalCode": "83-200",
+      "city": "Piotrowo"
+    },
+    "accounts": [
+      {
+        "accountNumber": "33101013970055002221000000",
+        "bankName": "mBank",
+        "accountStatus": "INACTIVE"
+      }
+    ]
+  },
+  {
+    "name": "Jan",
+    "surname": "Nowak",
+    "birthDate": {
+      "year": 2007,
+      "month": 3,
+      "day": 14
+    },
+    "address": {
+      "street": "ul. Polna 26B/5",
+      "postalCode": "83-200",
+      "city": "Stare Pole"
+    },
+    "accounts": [
+      {
+        "accountNumber": "22101013970055002221000000",
+        "bankName": "PKO B.P.",
+        "accountStatus": "ACTIVE"
+      }
+    ]
+  },
+  {
+    "name": "Piotr",
+    "surname": "",
+    "birthDate": {
+      "year": 1921,
+      "month": 3,
+      "day": 14
+    },
+    "address": {
+      "street": "ul. Nowakowska 26B/5",
+      "postalCode": "83-200",
+      "city": "Piotrowo"
+    },
+    "accounts": [
+      {
+        "accountNumber": "33101013970055002221000000",
+        "bankName": "mBank",
+        "accountStatus": "INACTIVE"
+      }
+    ]
+  },
+  {
+    "name": "Karol",
+    "surname": "Nowak",
+    "birthDate": {
+      "year": 1987,
+      "month": 3,
+      "day": 14
+    },
+    "address": {
+      "street": "ul. Nowakowska 26B/5",
+      "postalCode": "83-200",
+      "city": "Nowakowo"
+    },
+    "accounts": [
+      {
+        "accountNumber": "10101013970055003321000000",
+        "bankName": "Santander",
+        "accountStatus": "BLOCKED"
+      },
+      {
+        "accountNumber": "87101013970055002221000000",
+        "bankName": "mBank",
+        "accountStatus": "ACTIVE"
+      }
+    ]
+  },
+  {
+    "name": "Piotr",
+    "surname": "Piotrowicz",
+    "birthDate": {
+      "year": 1921,
+      "month": 3,
+      "day": 14
+    },
+    "address": {
+      "street": "ul. Nowakowska 26B/5",
+      "postalCode": "83-200",
+      "city": "Piotrowo"
+    },
+    "accounts": [
+      {
+        "accountNumber": "33101013970055002221000000",
+        "bankName": "mBank",
+        "accountStatus": "INACTIVE"
+      }
+    ]
+  },
+  {
+    "name": "Piotr",
+    "surname": "Piotrowicz",
+    "birthDate": {
+      "year": 1970,
+      "month": 1,
+      "day": 1
+    },
+    "address": {
+      "street": "ul. Nowakowska 26B/5",
+      "postalCode": "83-200",
+      "city": "Piotrowo"
+    },
+    "accounts": [
+      {
+        "accountNumber": "33101013970055002221000000",
+        "bankName": "mBank",
+        "accountStatus": "INACTIVE"
+      }
+    ]
+  }
+]

@@ -1,5 +1,6 @@
-package team.jit.trainings.etl;
+package team.jit.trainings.etl.customers.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
@@ -16,6 +17,7 @@ public class Customer implements HasKey {
 
     private String surname;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate birthDate;
 
     private Address address;

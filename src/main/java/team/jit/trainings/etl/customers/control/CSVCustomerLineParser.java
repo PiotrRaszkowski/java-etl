@@ -1,15 +1,18 @@
-package team.jit.trainings.etl;
+package team.jit.trainings.etl.customers.control;
 
 import org.apache.commons.lang3.StringUtils;
+import team.jit.trainings.etl.customers.entity.Account;
+import team.jit.trainings.etl.customers.entity.AccountStatus;
+import team.jit.trainings.etl.customers.entity.Address;
+import team.jit.trainings.etl.customers.entity.Customer;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class SingleLineCustomerParser {
+public class CSVCustomerLineParser {
 
     public Customer parse(String line) {
         String[] elements = line.split("\\|");
